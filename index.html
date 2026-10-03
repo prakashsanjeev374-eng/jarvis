@@ -6,7 +6,7 @@ if(n==='withFailureHandler')return function(h){return mk(s,h)};
 return function(){var a=Array.prototype.slice.call(arguments);
 fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({fn:n,a:a}),redirect:'follow'})
 .then(function(r){return r.json()}).then(function(j){if(s)s(j)}).catch(function(e){if(f)f(e)});}}})}
-window.google={script:{run:mk(null,null)}};})();
+window.google={script:{run:mk(null,null)}};function ping(){try{fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:'{"fn":"ping","a":[]}'}).catch(function(){})}catch(e){}}ping();setInterval(function(){if(!document.hidden)ping()},240000);document.addEventListener("visibilitychange",function(){if(!document.hidden)ping()});})();
 </script><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#030508">
@@ -337,7 +337,7 @@ function md(t){t=esc(t);var tk=String.fromCharCode(96),re=new RegExp(tk+tk+tk+'[
  t=t.replace(new RegExp(tk+'([^'+tk+'\\n]+)'+tk,'g'),'<code>$1</code>');
  t=t.replace(/\*\*([^*\n]+)\*\*/g,'<b>$1</b>');return t}
 function reveal(el){try{var tw=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,{acceptNode:function(n){return n.parentNode.closest('pre,code')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT}}),nodes=[],n,total=0;while(n=tw.nextNode()){nodes.push(n);total+=n.nodeValue.split(/\s+/).length}
- if(total>200)return;var i=0;nodes.forEach(function(n){var parts=n.nodeValue.split(/(\s+)/),f=document.createDocumentFragment();parts.forEach(function(p){if(!p)return;if(/^\s+$/.test(p))f.appendChild(document.createTextNode(p));else{var s=document.createElement('span');s.className='w';s.textContent=p;s.style.animationDelay=Math.min(i++*30,1700)+'ms';f.appendChild(s)}});n.parentNode.replaceChild(f,n)})}catch(e){}}
+ if(total>200)return;var i=0;nodes.forEach(function(n){var parts=n.nodeValue.split(/(\s+)/),f=document.createDocumentFragment();parts.forEach(function(p){if(!p)return;if(/^\s+$/.test(p))f.appendChild(document.createTextNode(p));else{var s=document.createElement('span');s.className='w';s.textContent=p;s.style.animationDelay=Math.min(i++*10,500)+'ms';f.appendChild(s)}});n.parentNode.replaceChild(f,n)})}catch(e){}}
 function add(cls,html){var d=document.createElement('div');d.className='m '+cls;d.innerHTML=html;chat.appendChild(d);fillRx(d);chat.scrollTop=chat.scrollHeight;if(cls==='b'){d.classList.add('new');reveal(d);setTimeout(function(){d.classList.remove('new')},1500)}return d}
 var CH=['Tamil la pesu','Explain AI simply','Plan my day','Write a short poem'];
 function hello(msg){chat.innerHTML='<div class="hello" id="hello"><div class="hr"><i></i><i></i><div class="rx"></div></div><b>JARVIS</b>'+msg+'<div class="dev">Developed by Sanjeev Prakash</div><div class="chips">'+CH.map(function(c){return '<button type="button" class="chip">'+c+'</button>'}).join('')+'</div></div>';fillRx(chat)}
