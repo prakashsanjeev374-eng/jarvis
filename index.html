@@ -382,7 +382,7 @@ function browserSpeak(t){if(!voiceOn||!window.speechSynthesis)return;var u=new S
 function speakReply(t){if(!voiceOn)return;google.script.run.withSuccessHandler(function(r){if(!voiceOn)return;if(r&&r.ok){playing=new Audio('data:audio/mpeg;base64,'+r.audio);playing.onplay=function(){speaking(true)};playing.onended=playing.onpause=function(){speaking(false)};playing.play().catch(function(){browserSpeak(t)})}else browserSpeak(t)}).withFailureHandler(function(){browserSpeak(t)}).tts(pass,t)}
 /* particles */
 (function(){var c=document.getElementById('fx'),x=c.getContext('2d'),W,H,P=[],S=[],K=[],last=0,lite=false,slow=0,dpr=Math.min(window.devicePixelRatio||1,1.5),px=0,py=0,tx=0,ty2=0,pk=0;
-var cores=navigator.hardwareConcurrency||4;
+var cores=4;
 function rs(){W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);var n=Math.min(lite||cores<=4?30:56,Math.floor(W*H/12000));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:-.1-Math.random()*.3,r:.6+Math.random()*1.8,a:.25+Math.random()*.6,z:.3+Math.random()*.9})}
 rs();addEventListener('resize',rs);
 addEventListener('pointermove',function(e){tx=(e.clientX/W-.5)*26;ty2=(e.clientY/H-.5)*26});
