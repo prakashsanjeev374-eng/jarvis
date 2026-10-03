@@ -368,7 +368,7 @@ document.getElementById('f').onsubmit=function(e){e.preventDefault();if(busy)ret
  SND.send();SND.think(true);busy=true;sb.disabled=true;sb.classList.add('busy');fw.classList.add('busy');energy=2;var ty=add('b typing','<div class="rx"></div><div class="wv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><em>ANALYZING</em>'),em=ty.querySelector('em'),k=0,tv=setInterval(function(){k=(k+1)%TW.length;em.textContent=TW[k]},1100);
  function done(){SND.think(false);clearInterval(tv);ty.remove();busy=false;sb.disabled=false;sb.classList.remove('busy');fw.classList.remove('busy')}
  google.script.run.withSuccessHandler(function(r){done();
-   if(r&&r.ok){hist.push({role:'model',text:r.text});var en=r.engine||'AI';add('b',md(r.text));SND.recv();energy=1.5;speakReply(r.text)}else{SND.err();hist.pop();add('b err',esc((r&&r.error)||'Something went wrong'))}})
+   if(r&&r.ok){hist.push({role:'model',text:r.text});var en=r.engine||'AI';add('b',md(r.text)+(r.image&&/^[A-Za-z0-9+\/=]+$/.test(r.image)?'<img alt="Generated image" src="data:'+(r.mime==='image/png'?'image/png':'image/jpeg')+';base64,'+r.image+'" style="display:block;max-width:100%;border-radius:12px;margin-top:10px">':''));SND.recv();energy=1.5;speakReply(r.text)}else{SND.err();hist.pop();add('b err',esc((r&&r.error)||'Something went wrong'))}})
   .withFailureHandler(function(er){done();SND.err();hist.pop();add('b err',esc('Connection error'))})
   .chat(pass,hist)};
 q.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey&&window.innerWidth>700){e.preventDefault();document.getElementById('f').requestSubmit()}});
