@@ -264,14 +264,14 @@ html[data-theme=candy] form .send{border-radius:50%}html[data-theme=candy] texta
 <button class="opt" data-t="orchid"><span class="sw" style="background:linear-gradient(180deg,#eadfff,#fdeff7)"><i style="left:12px;top:10px;width:60%;background:#fff"></i><i style="right:12px;top:32px;width:50%;background:#8b5cf6"></i></span><span class="nm">Orchid<small>Lavender and purple</small></span></button>
 <button class="opt" data-t="candy"><span class="sw" style="background:linear-gradient(180deg,#ffdce8,#fff4e6)"><i style="left:12px;top:10px;width:60%;background:#fff"></i><i style="right:12px;top:32px;width:50%;background:linear-gradient(90deg,#ff6f9a,#ff9a5c)"></i></span><span class="nm">Candy<small>Playful pink</small></span></button>
 </div></div></div>
-<script>(function(){var th=document.getElementById('thm');function cur(){return document.documentElement.getAttribute('data-theme')||'jarvis'}
+<script>document.addEventListener('DOMContentLoaded',function(){var th=document.getElementById('thm');function cur(){return document.documentElement.getAttribute('data-theme')||'jarvis'}
 function mark(){var c=cur(),o=th.querySelectorAll('.opt');for(var i=0;i<o.length;i++)o[i].className='opt'+(o[i].getAttribute('data-t')===c?' sel':'')}
 function set(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('jarvis_theme',t)}catch(e){}var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',({jarvis:'#030508',aurora:'#0a4fa8',frost:'#e6f3ff',orchid:'#f3ecff',candy:'#ffe9f0'})[t]);mark()}
 function open(){mark();th.className='on'}function close(){th.className=''}
 document.getElementById('thb').onclick=open;document.getElementById('thg2').onclick=open;document.getElementById('thx').onclick=close;
 th.onclick=function(e){if(e.target===th)close()};
 var o=th.querySelectorAll('.opt');for(var i=0;i<o.length;i++)(function(b){b.onclick=function(){set(b.getAttribute('data-t'));close()}})(o[i]);
-mark()})();</script><header><div class="rx"></div><div><h1>JARVIS</h1><div class="eng" id="engine">ONLINE</div></div><div class="sp"></div><button class="ghost" id="voice" aria-label="Toggle voice">Voice: off</button><button class="ghost" id="snd" aria-label="Toggle sound">&#128266;</button><button class="ghost" id="thb" aria-label="Change theme">&#127912;</button><button class="ghost" id="clr">New chat</button></header>
+mark()});</script><header><div class="rx"></div><div><h1>JARVIS</h1><div class="eng" id="engine">ONLINE</div></div><div class="sp"></div><button class="ghost" id="voice" aria-label="Toggle voice">Voice: off</button><button class="ghost" id="snd" aria-label="Toggle sound">&#128266;</button><button class="ghost" id="thb" aria-label="Change theme">&#127912;</button><button class="ghost" id="clr">New chat</button></header>
 <div id="chat"></div>
 <div id="viz"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 <form id="f"><div class="fw"><textarea id="q" rows="1" placeholder="Message JARVIS... / தமிழ் அல்லது English"></textarea></div><button class="send" id="s" type="submit">&#10148;</button></form>
