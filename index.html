@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><script>
+<!DOCTYPE html><html lang="en"><head><script>try{var _t=localStorage.getItem("jarvis_theme");if(!/^(jarvis|aurora|frost|orchid|candy)$/.test(_t||""))_t="jarvis";document.documentElement.setAttribute("data-theme",_t)}catch(e){document.documentElement.setAttribute("data-theme","jarvis")}</script><script>
 (function(){var API="https://script.google.com/macros/s/AKfycbxt0WzAqyHe7Cy0mjeUHwwz73qVzW_zjBJOSBSuqLbyhqkDc3rFM1_6SsICcvBIHRFG/exec";
 function mk(s,f){return new Proxy({},{get:function(t,n){
 if(n==='withSuccessHandler')return function(h){return mk(h,f)};
@@ -151,13 +151,127 @@ textarea::placeholder{color:#5d6b80}
 #gerr{color:#ff8a98;font-size:12px;min-height:16px;letter-spacing:.2em;font-family:ui-monospace,Menlo,monospace}
 #gerr.g{color:#6df0a8;text-shadow:0 0 10px #6df0a8}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}}
-#sh{position:fixed;left:50%;bottom:9%;transform:translateX(-50%);z-index:60;font:11px ui-monospace,Menlo,monospace;letter-spacing:.22em;color:#8be9ff;border:1px solid rgba(76,201,240,.45);border-radius:999px;padding:8px 14px;background:rgba(3,10,18,.6);text-shadow:0 0 10px #4cc9f0;opacity:0;pointer-events:none;transition:opacity .4s;animation:shp 1.6s ease-in-out infinite}#sh.v{opacity:.95}@keyframes shp{50%{box-shadow:0 0 14px rgba(76,201,240,.5)}}#snd{padding:7px 9px}#chat{scroll-behavior:auto}.m{flex:none}.via{display:none}.dev{font-size:10.5px;letter-spacing:.2em;color:var(--mut);font-family:ui-monospace,Menlo,monospace;text-transform:uppercase;margin-top:6px;opacity:.85}#gate{overflow-y:auto;-webkit-overflow-scrolling:touch}#chat{overscroll-behavior:contain;-webkit-text-size-adjust:100%}.m a{word-break:break-all}.ghost{min-height:36px}.chip{min-height:36px}@media(max-width:420px){header{gap:7px;padding-left:10px;padding-right:10px}.ghost{padding:7px 9px;font-size:11px}#chat{padding:14px 10px}.m{max-width:92%;font-size:15px}}@media(max-height:560px){#gate{justify-content:flex-start}}</style></head><body>
+#sh{position:fixed;left:50%;bottom:9%;transform:translateX(-50%);z-index:60;font:11px ui-monospace,Menlo,monospace;letter-spacing:.22em;color:#8be9ff;border:1px solid rgba(76,201,240,.45);border-radius:999px;padding:8px 14px;background:rgba(3,10,18,.6);text-shadow:0 0 10px #4cc9f0;opacity:0;pointer-events:none;transition:opacity .4s;animation:shp 1.6s ease-in-out infinite}#sh.v{opacity:.95}@keyframes shp{50%{box-shadow:0 0 14px rgba(76,201,240,.5)}}#snd{padding:7px 9px}#chat{scroll-behavior:auto}.m{flex:none}.via{display:none}.dev{font-size:10.5px;letter-spacing:.2em;color:var(--mut);font-family:ui-monospace,Menlo,monospace;text-transform:uppercase;margin-top:6px;opacity:.85}#gate{overflow-y:auto;-webkit-overflow-scrolling:touch}#chat{overscroll-behavior:contain;-webkit-text-size-adjust:100%}.m a{word-break:break-all}.ghost{min-height:36px}.chip{min-height:36px}@media(max-width:420px){header{gap:7px;padding-left:10px;padding-right:10px}.ghost{padding:7px 9px;font-size:11px}#chat{padding:14px 10px}.m{max-width:92%;font-size:15px}}@media(max-height:560px){#gate{justify-content:flex-start}}/* ===== themes ===== */
+#thb{padding:7px 9px}
+#thm{position:fixed;inset:0;z-index:80;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.45);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+#thm.on{display:flex}
+#thm .sheet{width:100%;max-width:520px;background:var(--sheetbg,#0b121c);color:var(--sheettxt,#e8f0f8);border-radius:26px 26px 0 0;padding:16px 16px calc(18px + env(safe-area-inset-bottom));box-shadow:0 -20px 60px rgba(0,0,0,.45);animation:sheet .35s cubic-bezier(.2,.9,.2,1) both}
+@keyframes sheet{from{transform:translateY(100%)}}
+#thm h2{margin:2px 4px 12px;font-size:15px;font-weight:700;letter-spacing:.04em;display:flex;align-items:center;justify-content:space-between}
+#thm h2 button{background:none;border:0;color:inherit;font-size:22px;line-height:1;padding:2px 8px;opacity:.7}
+#thm .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#thm .opt{border:2px solid transparent;border-radius:18px;padding:0;background:none;text-align:left;color:inherit;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.25);font:inherit}
+#thm .opt.sel{border-color:#37e08a}
+#thm .opt .sw{height:62px;position:relative;display:block}
+#thm .opt .sw i{position:absolute;border-radius:10px;height:14px}
+#thm .opt .nm{display:block;padding:8px 10px 9px;font-size:13px;font-weight:700;background:var(--sheetcard,#121b28);color:var(--sheettxt,#e8f0f8)}
+#thm .opt .nm small{display:block;font-weight:400;font-size:10.5px;opacity:.65;margin-top:1px}
+.thg{position:fixed;right:14px;top:max(14px,env(safe-area-inset-top));z-index:25;background:rgba(10,20,32,.55);color:#cfe3f5;border:1px solid rgba(255,255,255,.2);border-radius:999px;width:38px;height:38px;font-size:16px;padding:0}
+#gate.out~.thg,body.ready .thg{display:none}
+
+/* shared overrides for every non-default theme */
+html[data-theme]:not([data-theme=jarvis]) body{background:var(--bgimg)}
+html[data-theme]:not([data-theme=jarvis]) .au,html[data-theme]:not([data-theme=jarvis]) #grid,html[data-theme]:not([data-theme=jarvis]) #fx{display:none}
+html[data-theme]:not([data-theme=jarvis]) body:after{background:none}
+html[data-theme]:not([data-theme=jarvis]) .rx{filter:var(--rxf) drop-shadow(0 0 6px var(--glow))}
+html[data-theme]:not([data-theme=jarvis]) #boot{background:var(--bootbg)}
+html[data-theme]:not([data-theme=jarvis]) #flash{background:radial-gradient(circle at 50% 46%,#fff,var(--glow) 30%,transparent 65%)}
+html[data-theme]:not([data-theme=jarvis]) #bt,html[data-theme]:not([data-theme=jarvis]) h1{color:var(--h1);text-shadow:none}
+html[data-theme]:not([data-theme=jarvis]) #bt span{text-shadow:none}
+html[data-theme]:not([data-theme=jarvis]) #boot .ring,html[data-theme]:not([data-theme=jarvis]) #boot .cr{border-color:var(--blue)}
+html[data-theme]:not([data-theme=jarvis]) #boot .scan{background:linear-gradient(90deg,transparent,var(--blue),transparent);box-shadow:0 0 18px var(--blue)}
+html[data-theme]:not([data-theme=jarvis]) #bb{background:var(--line)}
+html[data-theme]:not([data-theme=jarvis]) #bb i{background:linear-gradient(90deg,var(--blue2),var(--blue));box-shadow:none}
+html[data-theme]:not([data-theme=jarvis]) #gate{background:var(--gatebg)}
+html[data-theme]:not([data-theme=jarvis]) #gate .iw{background:var(--line)}
+html[data-theme]:not([data-theme=jarvis]) #gate .iw:before{background:conic-gradient(from 0deg,transparent 0 62%,var(--blue) 86%,var(--blue2) 100%)}
+html[data-theme]:not([data-theme=jarvis]) #gate input{background:var(--inbg);color:var(--txt)}
+html[data-theme]:not([data-theme=jarvis]) #gate .gr i{border-color:var(--line)}
+html[data-theme]:not([data-theme=jarvis]) header{background:var(--hbg);box-shadow:var(--hshadow);border-bottom:1px solid var(--line)}
+html[data-theme]:not([data-theme=jarvis]) header:after{display:none}
+html[data-theme]:not([data-theme=jarvis]) .eng{text-shadow:none}
+html[data-theme]:not([data-theme=jarvis]) .ghost{background:var(--ghostbg);border:1px solid var(--line);color:var(--ghostcol);box-shadow:none}
+html[data-theme]:not([data-theme=jarvis]) #voice.on{background:var(--blue);color:var(--sendcol);box-shadow:0 0 14px var(--glow)}
+html[data-theme]:not([data-theme=jarvis]) .u{background:var(--ubg);color:var(--ucol);border:1px solid var(--uborder);box-shadow:var(--ushadow);border-radius:var(--rad);border-bottom-right-radius:6px}
+html[data-theme]:not([data-theme=jarvis]) .b{background:var(--bbg);color:var(--bcol);border:1px solid var(--bborder);box-shadow:var(--bshadow);border-radius:var(--rad);border-bottom-left-radius:6px}
+html[data-theme]:not([data-theme=jarvis]) .b.new:after{background:linear-gradient(100deg,transparent,var(--glow),transparent);opacity:.35}
+html[data-theme]:not([data-theme=jarvis]) .b.err{background:#fff0f1;color:#b4233a;border-color:#ff9aa8}
+html[data-theme]:not([data-theme=jarvis]) .m a{color:var(--link)}
+html[data-theme]:not([data-theme=jarvis]) .m code{background:var(--codebg);color:var(--codecol)}
+html[data-theme]:not([data-theme=jarvis]) .m pre{background:var(--codebg);border-color:var(--line)}
+html[data-theme]:not([data-theme=jarvis]) .m pre code{color:var(--bcol)}
+html[data-theme]:not([data-theme=jarvis]) .typing .wv i{background:linear-gradient(180deg,var(--blue2),var(--blue))}
+html[data-theme]:not([data-theme=jarvis]) .hello b{background:var(--hellog);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+html[data-theme]:not([data-theme=jarvis]) .chip{background:var(--chipbg);border:1px solid var(--line);color:var(--chipcol);box-shadow:var(--chipshadow)}
+html[data-theme]:not([data-theme=jarvis]) form{background:var(--fbg)}
+html[data-theme]:not([data-theme=jarvis]) .fw{background:var(--line)}
+html[data-theme]:not([data-theme=jarvis]) .fw:before{background:conic-gradient(from 0deg,transparent 0 62%,var(--blue) 86%,var(--blue2) 100%)}
+html[data-theme]:not([data-theme=jarvis]) .fw:focus-within,html[data-theme]:not([data-theme=jarvis]) .fw.busy{box-shadow:0 0 18px var(--glow)}
+html[data-theme]:not([data-theme=jarvis]) textarea{background:var(--inbg);color:var(--txt)}
+html[data-theme]:not([data-theme=jarvis]) textarea::placeholder{color:var(--mut)}
+html[data-theme]:not([data-theme=jarvis]) .send{background:var(--sendbg);color:var(--sendcol);box-shadow:0 6px 18px var(--glow)}
+html[data-theme]:not([data-theme=jarvis]) #viz i{background:linear-gradient(180deg,var(--blue),var(--blue2));box-shadow:none}
+html[data-theme]:not([data-theme=jarvis]) #sh{background:var(--hbg);color:var(--txt);border-color:var(--line);text-shadow:none}
+html[data-theme]:not([data-theme=jarvis]) #gerr{color:#d6334f}html[data-theme]:not([data-theme=jarvis]) #gerr.g{color:#1c9e5b;text-shadow:none}
+html[data-theme]:not([data-theme=jarvis]) .thg{background:var(--hbg);color:var(--txt);border-color:var(--line)}
+html[data-theme]:not([data-theme=jarvis]) #chat{-webkit-mask-image:none;mask-image:none}
+
+/* AURORA - gradient glass */
+html[data-theme=aurora]{--bg:#031a6b;--panel:#0a3a8a;--line:rgba(255,255,255,.28);--blue:#8fe9ff;--blue2:#2f8fe0;--txt:#fff;--mut:rgba(255,255,255,.62);--ec:#9dfcc0;--h1:#fff;--glow:rgba(120,220,255,.55);--rxf:hue-rotate(0deg);
+--bgimg:radial-gradient(120% 70% at 100% 20%,rgba(120,220,220,.75),transparent 60%),linear-gradient(165deg,#020f5a 0%,#0a4fa8 55%,#1c8fbf 100%);--bootbg:linear-gradient(165deg,#020f5a,#0a4fa8 60%,#1c8fbf);--gatebg:linear-gradient(165deg,#020f5a,#0a4fa8 60%,#1c8fbf);
+--hbg:rgba(255,255,255,.1);--hshadow:none;--ghostbg:rgba(255,255,255,.14);--ghostcol:#fff;
+--ubg:linear-gradient(135deg,rgba(255,255,255,.34),rgba(255,255,255,.16));--ucol:#fff;--uborder:rgba(255,255,255,.4);--ushadow:0 8px 24px rgba(0,20,80,.3);--rad:22px;
+--bbg:rgba(255,255,255,.12);--bcol:#fff;--bborder:rgba(255,255,255,.28);--bshadow:0 8px 24px rgba(0,20,80,.25);--link:#bff4ff;--codebg:rgba(0,10,50,.4);--codecol:#bff4ff;
+--hellog:linear-gradient(100deg,#fff,#bff4ff 50%,#fff);--chipbg:rgba(255,255,255,.14);--chipcol:#fff;--chipshadow:none;--fbg:linear-gradient(0deg,rgba(2,15,90,.55),transparent);--inbg:rgba(255,255,255,.14);--sendbg:linear-gradient(135deg,#7dff9a,#2fd36b);--sendcol:#033d1c;--sheetbg:#0a2f7a;--sheetcard:#12408f}
+html[data-theme=aurora] textarea{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html[data-theme=aurora] .b,html[data-theme=aurora] .u{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+/* FROST - soft light blue */
+html[data-theme=frost]{--bg:#e6f3ff;--panel:#fff;--line:rgba(40,110,190,.2);--blue:#2f86e0;--blue2:#5aa9f0;--txt:#16314d;--mut:#6f88a3;--ec:#1c9e5b;--h1:#16314d;--glow:rgba(47,134,224,.3);--rxf:hue-rotate(18deg) brightness(.72) saturate(1.5);
+--bgimg:radial-gradient(90% 50% at 50% 0%,#cfe8ff,transparent 70%),linear-gradient(180deg,#dcefff,#eef7ff 60%,#e3f1ff);--bootbg:linear-gradient(180deg,#d6ebff,#eef7ff);--gatebg:linear-gradient(180deg,#d6ebff,#f1f8ff);
+--hbg:rgba(255,255,255,.7);--hshadow:0 4px 18px rgba(40,110,190,.1);--ghostbg:#fff;--ghostcol:#2a5a8c;
+--ubg:#fff;--ucol:#16314d;--uborder:rgba(40,110,190,.12);--ushadow:0 6px 18px rgba(40,110,190,.12);--rad:20px;
+--bbg:rgba(255,255,255,.55);--bcol:#16314d;--bborder:rgba(40,110,190,.14);--bshadow:0 4px 14px rgba(40,110,190,.08);--link:#1769c4;--codebg:#e7f1fc;--codecol:#1769c4;
+--hellog:linear-gradient(100deg,#2f86e0,#16314d 50%,#2f86e0);--chipbg:#fff;--chipcol:#2a5a8c;--chipshadow:0 3px 10px rgba(40,110,190,.1);--fbg:linear-gradient(0deg,rgba(230,243,255,.95),rgba(230,243,255,0));--inbg:#fff;--sendbg:linear-gradient(135deg,#5aa9f0,#2f86e0);--sendcol:#fff;--sheetbg:#f4faff;--sheettxt:#16314d;--sheetcard:#fff}
+html[data-theme=frost] .send{border-radius:50%}
+/* ORCHID - lavender */
+html[data-theme=orchid]{--bg:#f1eaff;--panel:#fff;--line:rgba(120,80,220,.2);--blue:#8b5cf6;--blue2:#b58cff;--txt:#2a1d4a;--mut:#85779f;--ec:#7c3aed;--h1:#2a1d4a;--glow:rgba(139,92,246,.32);--rxf:hue-rotate(68deg) brightness(.85) saturate(1.3);
+--bgimg:radial-gradient(70% 40% at 15% 0%,rgba(255,196,230,.7),transparent 70%),radial-gradient(70% 40% at 100% 30%,rgba(190,170,255,.7),transparent 70%),linear-gradient(180deg,#f3ecff,#fdeff7);--bootbg:linear-gradient(180deg,#eadfff,#fdeff7);--gatebg:linear-gradient(180deg,#eadfff,#fdeff7);
+--hbg:rgba(255,255,255,.72);--hshadow:0 4px 18px rgba(120,80,220,.1);--ghostbg:#fff;--ghostcol:#5b3fb0;
+--ubg:linear-gradient(135deg,#9a6bff,#7a45f0);--ucol:#fff;--uborder:transparent;--ushadow:0 8px 22px rgba(122,69,240,.35);--rad:22px;
+--bbg:#fff;--bcol:#2a1d4a;--bborder:rgba(120,80,220,.12);--bshadow:0 6px 20px rgba(120,80,220,.12);--link:#6d3fe0;--codebg:#f3ecff;--codecol:#6d3fe0;
+--hellog:linear-gradient(100deg,#8b5cf6,#d46bb5 50%,#8b5cf6);--chipbg:#fff;--chipcol:#5b3fb0;--chipshadow:0 3px 10px rgba(120,80,220,.12);--fbg:linear-gradient(0deg,rgba(253,239,247,.95),rgba(253,239,247,0));--inbg:#fff;--sendbg:linear-gradient(135deg,#a77bff,#7a45f0);--sendcol:#fff;--sheetbg:#faf6ff;--sheettxt:#2a1d4a;--sheetcard:#fff}
+html[data-theme=orchid] .send{border-radius:50%}html[data-theme=orchid] textarea,html[data-theme=orchid] .fw{border-radius:26px}
+/* CANDY - playful pink */
+html[data-theme=candy]{--bg:#fff0f4;--panel:#fff;--line:rgba(255,92,138,.25);--blue:#ff5c8a;--blue2:#ff9a5c;--txt:#4a2230;--mut:#b07a8a;--ec:#ff5c8a;--h1:#4a2230;--glow:rgba(255,92,138,.3);--rxf:hue-rotate(148deg) brightness(.95) saturate(1.5);
+--bgimg:radial-gradient(60% 35% at 90% 5%,rgba(255,214,120,.65),transparent 70%),radial-gradient(60% 40% at 0% 40%,rgba(255,160,190,.5),transparent 70%),linear-gradient(180deg,#ffe9f0,#fff4e6);--bootbg:linear-gradient(180deg,#ffdce8,#fff4e6);--gatebg:linear-gradient(180deg,#ffdce8,#fff4e6);
+--hbg:rgba(255,255,255,.78);--hshadow:0 4px 18px rgba(255,92,138,.14);--ghostbg:#fff;--ghostcol:#c23a65;
+--ubg:linear-gradient(135deg,#ff6f9a,#ff9a5c);--ucol:#fff;--uborder:transparent;--ushadow:0 8px 20px rgba(255,92,138,.35);--rad:26px;
+--bbg:#fff;--bcol:#4a2230;--bborder:rgba(255,92,138,.18);--bshadow:0 6px 18px rgba(255,92,138,.14);--link:#d12f63;--codebg:#fff0f4;--codecol:#d12f63;
+--hellog:linear-gradient(100deg,#ff5c8a,#ff9a5c 50%,#ff5c8a);--chipbg:#fff;--chipcol:#c23a65;--chipshadow:0 3px 10px rgba(255,92,138,.15);--fbg:linear-gradient(0deg,rgba(255,244,230,.95),rgba(255,244,230,0));--inbg:#fff;--sendbg:linear-gradient(135deg,#ff6f9a,#ff9a5c);--sendcol:#fff;--sheetbg:#fff7fa;--sheettxt:#4a2230;--sheetcard:#fff}
+html[data-theme=candy]{font-family:ui-rounded,"SF Pro Rounded",-apple-system,"Segoe UI",Roboto,"Noto Sans Tamil",sans-serif}
+html[data-theme=candy] .send{border-radius:50%}html[data-theme=candy] textarea,html[data-theme=candy] .fw{border-radius:26px}html[data-theme=candy] .chip,html[data-theme=candy] .ghost{border-radius:999px}
+</style></head><body>
 <div class="au au1"></div><div class="au au2"></div><div id="grid"></div>
 <canvas id="fx"></canvas>
 <div id="gate"><div class="gr"><div class="rx"></div><i></i></div><h1>JARVIS</h1><div class="sub">ENTER ACCESS CODE</div>
 <div class="iw"><input id="pw" type="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;" autocomplete="off"></div><div id="gerr"></div>
 <button class="send" id="go">UNLOCK</button><div class="dev">Developed by Sanjeev Prakash</div></div>
-<header><div class="rx"></div><div><h1>JARVIS</h1><div class="eng" id="engine">ONLINE</div></div><div class="sp"></div><button class="ghost" id="voice" aria-label="Toggle voice">Voice: off</button><button class="ghost" id="snd" aria-label="Toggle sound">&#128266;</button><button class="ghost" id="clr">New chat</button></header>
+<button class="thg" id="thg2" aria-label="Change theme">&#127912;</button>
+<div id="thm"><div class="sheet"><h2><span>Choose theme</span><button id="thx" aria-label="Close">&times;</button></h2><div class="grid">
+<button class="opt" data-t="jarvis"><span class="sw" style="background:linear-gradient(135deg,#030508,#0b2a40)"><i style="left:12px;top:10px;width:60%;background:#0d1624;border:1px solid #4cc9f0"></i><i style="right:12px;top:32px;width:50%;background:#1a6a92"></i></span><span class="nm">Iron Core<small>Dark, glowing HUD</small></span></button>
+<button class="opt" data-t="aurora"><span class="sw" style="background:linear-gradient(160deg,#020f5a,#0a4fa8 60%,#5fd0d8)"><i style="left:12px;top:10px;width:60%;background:rgba(255,255,255,.22)"></i><i style="right:12px;top:32px;width:50%;background:#7dff9a"></i></span><span class="nm">Aurora<small>Blue gradient glass</small></span></button>
+<button class="opt" data-t="frost"><span class="sw" style="background:linear-gradient(180deg,#d6ebff,#f1f8ff)"><i style="left:12px;top:10px;width:60%;background:#fff"></i><i style="right:12px;top:32px;width:50%;background:#2f86e0"></i></span><span class="nm">Frost<small>Soft light blue</small></span></button>
+<button class="opt" data-t="orchid"><span class="sw" style="background:linear-gradient(180deg,#eadfff,#fdeff7)"><i style="left:12px;top:10px;width:60%;background:#fff"></i><i style="right:12px;top:32px;width:50%;background:#8b5cf6"></i></span><span class="nm">Orchid<small>Lavender and purple</small></span></button>
+<button class="opt" data-t="candy"><span class="sw" style="background:linear-gradient(180deg,#ffdce8,#fff4e6)"><i style="left:12px;top:10px;width:60%;background:#fff"></i><i style="right:12px;top:32px;width:50%;background:linear-gradient(90deg,#ff6f9a,#ff9a5c)"></i></span><span class="nm">Candy<small>Playful pink</small></span></button>
+</div></div></div>
+<script>(function(){var th=document.getElementById('thm');function cur(){return document.documentElement.getAttribute('data-theme')||'jarvis'}
+function mark(){var c=cur(),o=th.querySelectorAll('.opt');for(var i=0;i<o.length;i++)o[i].className='opt'+(o[i].getAttribute('data-t')===c?' sel':'')}
+function set(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('jarvis_theme',t)}catch(e){}var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',({jarvis:'#030508',aurora:'#0a4fa8',frost:'#e6f3ff',orchid:'#f3ecff',candy:'#ffe9f0'})[t]);mark()}
+function open(){mark();th.className='on'}function close(){th.className=''}
+document.getElementById('thb').onclick=open;document.getElementById('thg2').onclick=open;document.getElementById('thx').onclick=close;
+th.onclick=function(e){if(e.target===th)close()};
+var o=th.querySelectorAll('.opt');for(var i=0;i<o.length;i++)(function(b){b.onclick=function(){set(b.getAttribute('data-t'));close()}})(o[i]);
+mark()})();</script><header><div class="rx"></div><div><h1>JARVIS</h1><div class="eng" id="engine">ONLINE</div></div><div class="sp"></div><button class="ghost" id="voice" aria-label="Toggle voice">Voice: off</button><button class="ghost" id="snd" aria-label="Toggle sound">&#128266;</button><button class="ghost" id="thb" aria-label="Change theme">&#127912;</button><button class="ghost" id="clr">New chat</button></header>
 <div id="chat"></div>
 <div id="viz"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 <form id="f"><div class="fw"><textarea id="q" rows="1" placeholder="Message JARVIS... / தமிழ் அல்லது English"></textarea></div><button class="send" id="s" type="submit">&#10148;</button></form>
