@@ -4,8 +4,11 @@ function mk(s,f){return new Proxy({},{get:function(t,n){
 if(n==='withSuccessHandler')return function(h){return mk(h,f)};
 if(n==='withFailureHandler')return function(h){return mk(s,h)};
 return function(){var a=Array.prototype.slice.call(arguments);
-fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({fn:n,a:a}),redirect:'follow'})
-.then(function(r){return r.json()}).then(function(j){if(s)s(j)}).catch(function(e){if(f)f(e)});}}})}
+var body=JSON.stringify({fn:n,a:a}),tries=0;
+function go(){tries++;fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body,redirect:'follow'})
+.then(function(r){return r.text()}).then(function(t){var j;try{j=JSON.parse(t)}catch(e){throw new Error('bad-json')}return j})
+.then(function(j){try{if(s)s(j)}catch(e){try{console.error(e)}catch(_){}if(f)f(e)}},function(e){if(tries<3){setTimeout(go,1500*tries)}else if(f)f(e)});}
+go();}}})}
 window.google={script:{run:mk(null,null)}};function ping(){try{fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:'{"fn":"ping","a":[]}'}).catch(function(){})}catch(e){}}ping();setInterval(function(){if(!document.hidden)ping()},240000);document.addEventListener("visibilitychange",function(){if(!document.hidden)ping()});})();
 </script><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
