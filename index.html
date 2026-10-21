@@ -1,4 +1,4 @@
-<!DOCTYPE html><!-- v32 STARK HUD redesign 2026-10-21 --><html lang="en"><head><script>try{var _t=localStorage.getItem("jarvis_theme");if(!/^(jarvis|aurora|frost|orchid|candy)$/.test(_t||""))_t="jarvis";document.documentElement.setAttribute("data-theme",_t)}catch(e){document.documentElement.setAttribute("data-theme","jarvis")}</script><script>
+<!DOCTYPE html><!-- v33 STARK HUD redesign + mobile header fit 2026-10-21 --><html lang="en"><head><script>try{var _t=localStorage.getItem("jarvis_theme");if(!/^(jarvis|aurora|frost|orchid|candy)$/.test(_t||""))_t="jarvis";document.documentElement.setAttribute("data-theme",_t)}catch(e){document.documentElement.setAttribute("data-theme","jarvis")}</script><script>
 (function(){var API="https://script.google.com/macros/s/AKfycbxt0WzAqyHe7Cy0mjeUHwwz73qVzW_zjBJOSBSuqLbyhqkDc3rFM1_6SsICcvBIHRFG/exec";
 function mk(s,f){return new Proxy({},{get:function(t,n){
 if(n==='withSuccessHandler')return function(h){return mk(h,f)};
@@ -292,6 +292,15 @@ html[data-theme=jarvis] #gate .send{border-radius:3px;clip-path:polygon(12px 0,1
 html[data-theme=jarvis] #gate .iw{border-radius:3px}
 html[data-theme=jarvis] #gate input{border-radius:2px;font-family:ui-monospace,Menlo,monospace}
 html[data-theme=jarvis] .hello{border:1px solid rgba(76,201,240,.22);background:rgba(6,12,20,.4);padding:26px 20px;box-shadow:inset 0 0 40px rgba(76,201,240,.05)}
+
+/* small-screen header fit */
+@media(max-width:430px){
+html[data-theme=jarvis] header{gap:6px;padding-left:10px;padding-right:10px}
+html[data-theme=jarvis] header h1{font-size:15px;letter-spacing:.2em}
+html[data-theme=jarvis] header h1:after{content:""}
+html[data-theme=jarvis] header .ghost{font-size:9.5px;padding:7px 7px;letter-spacing:.04em}
+html[data-theme=jarvis] .hello{padding:20px 14px}
+}
 </style></head><body>
 <div class="au au1"></div><div class="au au2"></div><div id="grid"></div>
 <canvas id="fx"></canvas>
